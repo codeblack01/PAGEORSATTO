@@ -40,6 +40,17 @@
         min-height: 44px;
         min-width: 44px;
       }
+
+      /* Garantir que botões não quebrem linha */
+      .mobile-button-nowrap {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+      }
+
+      .mobile-flex-row {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+      }
     }
 
     /* Suavizar transições */
@@ -85,6 +96,19 @@
       transform: translateY(-5px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
+
+    /* Otimizações de texto para desktop */
+    @media (min-width: 1024px) {
+      .desktop-text-optimized {
+        line-height: 1.4 !important;
+        letter-spacing: -0.01em;
+      }
+      
+      .desktop-heading-optimized {
+        line-height: 1.2 !important;
+        letter-spacing: -0.02em;
+      }
+    }
   </style>
 </head>
 <body class="font-sans bg-light text-gray-800 mobile-optimized">
@@ -122,12 +146,12 @@
       <!-- Menu Desktop Premium -->
       <div class="hidden md:flex items-center space-x-6">
         <a href="tel:+554932026885" 
-           class="text-primary hover:text-accent transition-all flex items-center gap-2 font-medium smooth-transition mobile-tap-target px-4 py-2 rounded-lg hover:bg-primary/5">
+           class="text-primary hover:text-accent transition-all flex items-center gap-2 font-medium smooth-transition mobile-tap-target px-4 py-2 rounded-lg hover:bg-primary/5 mobile-button-nowrap">
           <i class="fas fa-phone-alt text-lg"></i> 
           <span class="whitespace-nowrap font-semibold">(49) 3202-6885</span>
         </a>
         <a href="https://api.whatsapp.com/send/?phone=554932026885&text=Gostei+da+casa+gostaria+de+conhecer" 
-           class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl smooth-transition flex items-center gap-3 shadow-lg hover-lift mobile-tap-target font-semibold">
+           class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl smooth-transition flex items-center gap-3 shadow-lg hover-lift mobile-tap-target font-semibold mobile-button-nowrap">
           <i class="fab fa-whatsapp text-lg"></i> 
           <span class="whitespace-nowrap">Fale no WhatsApp</span>
         </a>
@@ -144,12 +168,12 @@
   <div id="mobile-menu" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white shadow-lg md:hidden">
     <div class="flex flex-col items-start space-y-4 p-6 border-t">
       <a href="tel:+554932026885" 
-         class="text-primary hover:text-accent transition-all flex items-center gap-3 font-medium mobile-tap-target w-full py-4 smooth-transition hover:bg-primary/5 rounded-lg px-4">
+         class="text-primary hover:text-accent transition-all flex items-center gap-3 font-medium mobile-tap-target w-full py-4 smooth-transition hover:bg-primary/5 rounded-lg px-4 mobile-button-nowrap">
         <i class="fas fa-phone-alt text-lg"></i> 
         <span class="font-semibold">(49) 3202-6885</span>
       </a>
       <a href="https://api.whatsapp.com/send/?phone=554932026885&text=Gostei+da+casa+gostaria+de+conhecer" 
-         class="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl smooth-transition flex items-center gap-3 w-full justify-center shadow-lg mobile-tap-target font-semibold hover-lift">
+         class="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl smooth-transition flex items-center gap-3 w-full justify-center shadow-lg mobile-tap-target font-semibold hover-lift mobile-button-nowrap">
         <i class="fab fa-whatsapp text-lg"></i> 
         Fale no WhatsApp
       </a>
@@ -166,8 +190,8 @@
       <div class="flex flex-col justify-center space-y-6 lg:space-y-8">
         <!-- Título Principal -->
         <div class="text-center lg:text-left space-y-4">
-          <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight md:leading-tight lg:leading-tight text-shadow">
-            Sua próxima conquista merece<br class="hidden md:block">
+          <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight md:leading-tight lg:leading-tight text-shadow desktop-heading-optimized">
+            Sua próxima conquista merece
             conforto e uma localização segura.
           </h1>
           <h2 class="text-xl md:text-2xl lg:text-3xl font-bold italic text-yellow-400 text-shadow">
@@ -176,7 +200,7 @@
         </div>
 
         <!-- Descrição -->
-        <p class="text-lg md:text-xl lg:text-2xl text-gray-200 text-center lg:text-left leading-relaxed max-w-2xl mx-auto lg:mx-0">
+        <p class="text-lg md:text-xl lg:text-2xl text-gray-200 text-center lg:text-left leading-relaxed max-w-2xl mx-auto lg:mx-0 desktop-text-optimized">
           More com exclusividade e sofisticação em um dos melhores endereços de Videira.
         </p>
 
@@ -208,7 +232,7 @@
 
         <!-- Ícone Financiável -->
         <div class="flex justify-center lg:justify-start">
-          <div class="bg-green-500/20 border border-green-400/30 rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3 smooth-transition hover:bg-green-500/30 hover-lift">
+          <div class="bg-green-500/20 border border-green-400/30 rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3 smooth-transition hover:bg-green-500/30 hover-lift mobile-button-nowrap">
             <i class="fas fa-hand-holding-usd text-green-400 text-lg md:text-xl"></i>
             <span class="text-green-400 font-semibold text-sm md:text-base lg:text-lg">Financiável</span>
           </div>
@@ -228,15 +252,15 @@
           
           <!-- Conteúdo do Card -->
           <div class="p-6 md:p-8 text-center space-y-4">
-            <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">Agende Sua Visita Exclusiva</h3>
-            <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 desktop-heading-optimized">Agende Sua Visita Exclusiva</h3>
+            <p class="text-gray-600 text-base md:text-lg leading-relaxed desktop-text-optimized">
               Clique no botão abaixo e fale diretamente com nossa equipe pelo WhatsApp
             </p>
             
             <!-- Botão WhatsApp -->
             <a href="https://api.whatsapp.com/send/?phone=554932026885&text=Gostei+da+casa+gostaria+de+conhecer"
                target="_blank"
-               class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 md:py-5 rounded-xl shadow-lg flex items-center justify-center gap-3 text-lg md:text-xl smooth-transition mobile-tap-target hover-lift">
+               class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 md:py-5 rounded-xl shadow-lg flex items-center justify-center gap-3 text-lg md:text-xl smooth-transition mobile-tap-target hover-lift mobile-button-nowrap">
               <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
               AGENDAR VISITA
             </a>
@@ -252,8 +276,8 @@
 <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4">Galeria do Imóvel</h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4 desktop-heading-optimized">Galeria do Imóvel</h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto desktop-text-optimized">
         Conheça cada detalhe deste imóvel exclusivo
       </p>
     </div>
@@ -301,16 +325,13 @@
     <!-- CTA após galeria -->
     <div class="mt-12 md:mt-16 text-center">
       <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
-        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 md:mb-6">Gostou do que viu?</h3>
-        <p class="text-gray-600 mb-6 md:mb-8 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          Estas imagens mostram apenas uma parte do que este imóvel tem a oferecer. 
-          <span class="font-semibold text-primary">Venha conhecer pessoalmente</span> e descubra todos os detalhes 
-          que fazem a diferença no seu dia a dia. Cada ambiente foi pensado para proporcionar 
-          conforto, praticidade e elegância.
+        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 md:mb-6 desktop-heading-optimized">Gostou do que viu?</h3>
+        <p class="text-gray-600 mb-6 md:mb-8 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto desktop-text-optimized">
+          Estas imagens mostram apenas uma parte do que este imóvel tem a oferecer. Venha conhecer pessoalmente e descubra todos os detalhes que fazem a diferença no seu dia a dia. Cada ambiente foi pensado para proporcionar conforto, praticidade e elegância.
         </p>
         <a href="https://api.whatsapp.com/send/?phone=554932026885&text=Gostei+da+casa+gostaria+de+conhecer" 
            target="_blank"
-           class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold px-8 md:px-12 py-4 md:py-5 rounded-xl shadow-lg smooth-transition gap-4 mobile-tap-target text-lg md:text-xl hover-lift">
+           class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-lg smooth-transition gap-3 mobile-tap-target text-base md:text-lg hover-lift mobile-button-nowrap">
           <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
           Quero Agendar uma Visita
         </a>
@@ -324,8 +345,8 @@
   <div class="container mx-auto px-4">
     
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4">Descubra Como é Bom Viver Aqui</h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-4 desktop-heading-optimized">Descubra Como é Bom Viver Aqui</h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto desktop-text-optimized">
         Conheça os detalhes que fazem deste imóvel a escolha perfeita
       </p>
     </div>
@@ -343,10 +364,10 @@
 
       <!-- Texto -->
       <div class="lg:w-1/2 flex flex-col justify-center mt-8 lg:mt-0">
-        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 md:mb-6">
+        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 md:mb-6 desktop-heading-optimized">
           Moradia Perfeita pra Você e sua Família
         </h3>
-        <p class="text-gray-700 mb-6 md:mb-8 text-lg md:text-xl leading-relaxed">
+        <p class="text-gray-700 mb-6 md:mb-8 text-lg md:text-xl leading-relaxed desktop-text-optimized">
           Imóvel exclusivo que oferece mais do que um endereço - oferece um <span class="font-semibold text-primary">estilo de vida</span>. 
           Com acabamentos premium e atenção aos detalhes, cada centímetro foi pensado para proporcionar 
           conforto, elegância e praticidade no seu dia a dia.
@@ -383,8 +404,8 @@
         <div class="bg-accent/20 rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 smooth-transition">
           <i class="fas fa-snowflake text-2xl md:text-3xl text-accent"></i>
         </div>
-        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl">Espera para Ar-Condicionado</h4>
-        <p class="text-gray-600 text-lg md:text-xl">Infraestrutura completa para instalação de ar-condicionado em todos os ambientes</p>
+        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl desktop-heading-optimized">Espera para Ar-Condicionado</h4>
+        <p class="text-gray-600 text-lg md:text-xl desktop-text-optimized">Infraestrutura completa para instalação de ar-condicionado em todos os ambientes</p>
       </div>
 
       <!-- Card 2 -->
@@ -392,8 +413,8 @@
         <div class="bg-accent/20 rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 smooth-transition">
           <i class="fas fa-door-closed text-2xl md:text-3xl text-accent"></i>
         </div>
-        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl">Portão Eletrônico</h4>
-        <p class="text-gray-600 text-lg md:text-xl">Sistema completo de segurança com interfone eletrônico e portão automático</p>
+        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl desktop-heading-optimized">Portão Eletrônico</h4>
+        <p class="text-gray-600 text-lg md:text-xl desktop-text-optimized">Sistema completo de segurança com interfone eletrônico e portão automático</p>
       </div>
 
       <!-- Card 3 -->
@@ -401,8 +422,8 @@
         <div class="bg-accent/20 rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 smooth-transition">
           <i class="fas fa-map-marker-alt text-2xl md:text-3xl text-accent"></i>
         </div>
-        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl">Localização Privilegiada</h4>
-        <p class="text-gray-600 text-lg md:text-xl">Alto potencial de valorização em região segura, tranquila e bem localizada</p>
+        <h4 class="font-bold text-primary mb-3 md:mb-4 text-xl md:text-2xl desktop-heading-optimized">Localização Privilegiada</h4>
+        <p class="text-gray-600 text-lg md:text-xl desktop-text-optimized">Alto potencial de valorização em região segura, tranquila e bem localizada</p>
       </div>
     </div>
   </div>
@@ -412,8 +433,8 @@
 <section class="py-12 md:py-20 gradient-bg text-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-shadow">O que Nossos Clientes Dizem</h2>
-      <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-shadow desktop-heading-optimized">O que Nossos Clientes Dizem</h2>
+      <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto desktop-text-optimized">
         Confira a experiência de quem já realizou o sonho da casa própria conosco
       </p>
     </div>
@@ -423,7 +444,7 @@
         <div class="flex items-center mb-4 md:mb-6">
           <div class="text-accent text-2xl md:text-3xl">★★★★★</div>
         </div>
-        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700">
+        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700 desktop-text-optimized">
           "Imobiliária exemplo em Videira. Fiz algumas fotos profissionais da equipe e do ambiente interno que foi projetado pelas arquitetas Duda e Eli da Studio_E. O novo endereço no bairro Dois Pinheiros tem facilidade de acesso e é mais tranquilo para estacionar. Atendimento especializado e equipe sempre atenta aos detalhes. Obrigada pela parceria!"
         </p>
         <div class="flex items-center">
@@ -441,7 +462,7 @@
         <div class="flex items-center mb-4 md:mb-6">
           <div class="text-accent text-2xl md:text-3xl">★★★★★</div>
         </div>
-        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700">
+        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700 desktop-text-optimized">
           "Atendimento excepcional! Me orientaram em cada etapa e conseguiram o imóvel perfeito para minha família. Profissionalismo e transparência em todo o processo de compra."
         </p>
         <div class="flex items-center">
@@ -459,7 +480,7 @@
         <div class="flex items-center mb-4 md:mb-6">
           <div class="text-accent text-2xl md:text-3xl">★★★★★</div>
         </div>
-        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700">
+        <p class="italic mb-4 md:mb-6 text-lg md:text-xl leading-relaxed text-gray-700 desktop-text-optimized">
           "Velocidade e eficiência na venda do meu imóvel. Superaram todas as expectativas! Conseguiram um ótimo negócio em tempo recorde com total transparência."
         </p>
         <div class="flex items-center">
@@ -480,30 +501,30 @@
 <section class="py-12 md:py-20 bg-gradient-to-r from-accent to-yellow-500 text-white">
   <div class="container mx-auto px-4 text-center">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-6 md:mb-8 leading-tight text-shadow">
-        Talvez Essa Seja a Oportunidade Perfeita<br class="hidden md:block">
-        para Comprar Sua Casa Agora
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-6 md:mb-8 leading-tight text-shadow desktop-heading-optimized">
+        Talvez Essa Seja a Oportunidade<br class="hidden md:block">
+        Perfeita para Comprar Sua Casa Agora
       </h2>
 
-      <p class="text-lg md:text-2xl mb-8 md:mb-12 text-gray-100 leading-relaxed">
+      <p class="text-lg md:text-2xl mb-8 md:mb-12 text-gray-100 leading-relaxed desktop-text-optimized">
         Imóveis com estas características de qualidade são <span class="font-bold">raros no mercado</span>. 
         Não perca a chance de garantir o seu lar dos sonhos em uma localização privilegiada.
         <span class="font-bold block mt-4 text-white">Agende sua visita hoje mesmo!</span>
       </p>
 
-      <!-- Botão WhatsApp Final -->
-      <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+      <!-- Botões otimizados para desktop -->
+      <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-stretch mobile-flex-row">
         <a href="https://api.whatsapp.com/send/?phone=554932026885&text=Gostei+da+casa+gostaria+de+conhecer" 
            target="_blank" 
-           class="bg-green-600 hover:bg-green-700 text-white px-8 md:px-12 py-4 md:py-6 rounded-xl shadow-2xl flex items-center justify-center gap-4 text-lg md:text-2xl font-bold smooth-transition mobile-tap-target hover-lift flex-1 max-w-md">
-          <i class="fab fa-whatsapp text-2xl md:text-3xl"></i> 
-          Solicitar Informações
+           class="bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-2xl flex items-center justify-center gap-3 text-base md:text-lg font-bold smooth-transition mobile-tap-target hover-lift mobile-button-nowrap flex-1 min-w-0">
+          <i class="fab fa-whatsapp text-xl md:text-2xl"></i> 
+          <span class="truncate">Solicitar Informações</span>
         </a>
         
         <a href="tel:+554932026885"
-           class="bg-white hover:bg-gray-100 text-primary px-8 md:px-12 py-4 md:py-6 rounded-xl shadow-2xl flex items-center justify-center gap-4 text-lg md:text-2xl font-bold smooth-transition mobile-tap-target hover-lift flex-1 max-w-md">
-          <i class="fas fa-phone text-2xl md:text-3xl"></i>
-          Ligar Agora
+           class="bg-white hover:bg-gray-100 text-primary px-6 md:px-8 py-4 md:py-5 rounded-xl shadow-2xl flex items-center justify-center gap-3 text-base md:text-lg font-bold smooth-transition mobile-tap-target hover-lift mobile-button-nowrap flex-1 min-w-0">
+          <i class="fas fa-phone text-xl md:text-2xl"></i>
+          <span class="truncate">Ligar Agora</span>
         </a>
       </div>
     </div>
@@ -522,7 +543,7 @@
         <img src="https://orsattoimoveisvideira.com.br/wp-content/uploads/2025/09/Design-sem-nome-10.png" 
              alt="Orsatto Imóveis" 
              class="h-12 md:h-16 mb-4 md:mb-6 brightness-110 mx-auto md:mx-0 smooth-transition hover:scale-105">
-        <p class="text-gray-300 leading-relaxed text-lg md:text-xl mb-4">
+        <p class="text-gray-300 leading-relaxed text-lg md:text-xl mb-4 desktop-text-optimized">
           Há mais de <span class="font-bold text-white">15 anos</span> transformando sonhos em endereços concretos.
         </p>
         <div class="flex space-x-4 justify-center md:justify-start">
@@ -540,17 +561,17 @@
 
       <!-- Contato -->
       <div class="text-center md:text-left">
-        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6">Contato</h4>
+        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6 desktop-heading-optimized">Contato</h4>
         <div class="space-y-3 md:space-y-4">
-          <p class="text-gray-300 flex items-center gap-3 justify-center md:justify-start text-lg">
+          <p class="text-gray-300 flex items-center gap-3 justify-center md:justify-start text-lg mobile-button-nowrap desktop-text-optimized">
             <i class="fas fa-phone-alt text-accent"></i> 
             <span>(49) 3202-6885</span>
           </p>
-          <p class="text-gray-300 flex items-center gap-3 justify-center md:justify-start text-lg">
+          <p class="text-gray-300 flex items-center gap-3 justify-center md:justify-start text-lg mobile-button-nowrap desktop-text-optimized">
             <i class="fas fa-envelope text-accent"></i> 
             <span>moacir@orsattoimoveisvda.com.br</span>
           </p>
-          <p class="text-gray-300 flex items-start gap-3 justify-center md:justify-start text-lg">
+          <p class="text-gray-300 flex items-start gap-3 justify-center md:justify-start text-lg desktop-text-optimized">
             <i class="fas fa-map-marker-alt text-accent mt-1"></i> 
             <span>Rua Pedro Andreazza, 147<br>Dois Pinheiros, Videira - SC</span>
           </p>
@@ -559,30 +580,30 @@
 
       <!-- Links Úteis -->
       <div class="text-center md:text-left">
-        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6">Links Rápidos</h4>
+        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6 desktop-heading-optimized">Links Rápidos</h4>
         <div class="space-y-3 md:space-y-4">
-          <a href="#gallery" class="block text-gray-300 hover:text-accent smooth-transition text-lg">Galeria</a>
-          <a href="#details" class="block text-gray-300 hover:text-accent smooth-transition text-lg">Detalhes</a>
-          <a href="#testimonials" class="block text-gray-300 hover:text-accent smooth-transition text-lg">Depoimentos</a>
-          <a href="#contact" class="block text-gray-300 hover:text-accent smooth-transition text-lg">Contato</a>
+          <a href="#gallery" class="block text-gray-300 hover:text-accent smooth-transition text-lg desktop-text-optimized">Galeria</a>
+          <a href="#details" class="block text-gray-300 hover:text-accent smooth-transition text-lg desktop-text-optimized">Detalhes</a>
+          <a href="#testimonials" class="block text-gray-300 hover:text-accent smooth-transition text-lg desktop-text-optimized">Depoimentos</a>
+          <a href="#contact" class="block text-gray-300 hover:text-accent smooth-transition text-lg desktop-text-optimized">Contato</a>
         </div>
       </div>
 
       <!-- Horários -->
       <div class="text-center md:text-left">
-        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6">Horário de Atendimento</h4>
+        <h4 class="font-bold text-xl md:text-2xl mb-4 md:mb-6 desktop-heading-optimized">Horário de Atendimento</h4>
         <div class="space-y-2 md:space-y-3">
-          <p class="text-gray-300 text-lg">Segunda a Sexta</p>
-          <p class="text-gray-300 text-lg">9h às 18h</p>
-          <p class="text-gray-300 text-lg">Sábado: 9h às 12h</p>
+          <p class="text-gray-300 text-lg desktop-text-optimized">Segunda a Sexta</p>
+          <p class="text-gray-300 text-lg desktop-text-optimized">9h às 18h</p>
+          <p class="text-gray-300 text-lg desktop-text-optimized">Sábado: 9h às 12h</p>
         </div>
       </div>
     </div>
 
     <!-- Linha inferior -->
     <div class="border-t border-gray-700 mt-12 md:mt-16 pt-8 text-center">
-      <p class="text-gray-400 text-lg">&copy; 2025 Orsatto Imóveis. Todos os direitos reservados.</p>
-      <p class="text-gray-500 text-sm mt-2">Desenvolvido com ❤️ para sua nova conquista</p>
+      <p class="text-gray-400 text-lg desktop-text-optimized">&copy; 2025 Orsatto Imóveis. Todos os direitos reservados.</p>
+      <p class="text-gray-500 text-sm mt-2 desktop-text-optimized">Desenvolvido com ❤️ para sua nova conquista</p>
     </div>
   </div>
 </footer>
